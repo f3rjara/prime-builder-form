@@ -1,0 +1,94 @@
+<p-toast position="top-left" />
+<main class="main-content">
+  <header class="header-container">
+    <p>Constructor de formularios dinámicos</p>
+  </header>
+
+  <section class="section-container">
+    <p-splitter class="splitter-container" [style]="{ height: '100%' }">
+      <ng-template pTemplate>
+        <ng-container *ngTemplateOutlet="builderJson"></ng-container>
+      </ng-template>
+
+      <ng-template pTemplate>
+        <ng-container *ngTemplateOutlet="builderInteraction"></ng-container>
+      </ng-template>
+
+      <ng-template pTemplate>
+        <ng-container *ngTemplateOutlet="builderPreview"></ng-container>
+      </ng-template>
+    </p-splitter>
+  </section>
+</main>
+
+<ng-template #builderJson>
+  <section class="section-builder-template section-builder-template--json" (blur)="onCodeChange()">
+    <div class="title-section">
+      <h3>Construir formulario desde JSON</h3>
+    </div>
+    <ngx-monaco-editor
+      [style]="{ width: '100%', height: '95%', margin: '0' }"
+      [options]="editorOptions"
+      [(ngModel)]="code"
+      (mouseleave)="onCodeChange()"
+    ></ngx-monaco-editor>
+  </section>
+</ng-template>
+
+<ng-template #builderInteraction>
+  <section class="section-builder-template section-builder-template--json">
+    <div class="title-section">
+      <h3>Construir formulario interactivamente</h3>
+    </div>
+    <p-scrollPanel
+      [style]="{ width: '95%', height: '80%', margin: '1em 0 1em 1em' }"
+    >
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur,
+      debitis! Ullam nobis deserunt omnis distinctio vitae similique, maiores
+      fugit modi, rem suscipit velit at, recusandae ducimus incidunt fugiat
+      dignissimos officiis. Eveniet voluptas labore ipsum impedit, quae
+      laboriosam dolorem praesentium consectetur distinctio similique assumenda
+      et. In corrupti dolores molestiae sed, vel, eveniet quam perspiciatis
+      itaque et, aliquam repellat eius rerum eum. Ipsum explicabo pariatur vitae
+      blanditiis, quis molestiae, nemo exercitationem rerum et, officiis impedit
+      quasi harum fugit nisi molestias animi! Consectetur voluptas voluptatibus
+      commodi debitis eaque eveniet necessitatibus deserunt dolor ullam? Nobis,
+      repellat quae ex beatae odio incidunt quod minus quisquam cupiditate
+      tenetur cumque eaque modi dicta ducimus quasi enim nostrum. Dolore,
+      perferendis. Modi numquam neque sit illum molestias fugit praesentium!
+      Ipsam commodi sit veniam officiis. Non repudiandae laudantium beatae.
+      Dolore quos fugit architecto, aut sapiente vitae, sit similique aliquid
+      nobis beatae eveniet iste obcaecati libero corporis, suscipit qui minima
+      quo. Recusandae quam quo quasi quidem quas beatae eligendi? Modi facilis
+      numquam exercitationem. Sit quaerat recusandae non veniam consequatur.
+      Possimus animi itaque libero quam? Voluptate totam doloribus, ducimus ab
+      vitae saepe. Accusamus, voluptates nulla. Rerum quasi commodi perferendis
+      tempore officiis harum nobis cupiditate ea consequatur, necessitatibus,
+      consectetur natus aut porro? Voluptatum facilis magnam, fuga voluptatibus
+      odio nihil libero labore culpa et. Vel, reiciendis! Earum hic aliquam est
+      facilis officiis at, a expedita! Natus sapiente nam fuga dicta officia,
+      consectetur eius tempore laborum amet assumenda a id repudiandae sed
+      aspernatur laboriosam explicabo? Nam reiciendis, aspernatur molestiae
+      perferendis dolor quisquam dolore rerum, magni quidem illum quasi quod
+      maiores esse velit perspiciatis corporis doloremque? Facere dolorum
+      dignissimos consectetur excepturi aliquid repudiandae praesentium repellat
+      cumque? Culpa, ipsum? Ducimus pariatur, sit libero autem, unde recusandae
+      ut non, saepe ipsa neque sint. Deserunt laboriosam consectetur facilis ea
+      consequuntur atque? Ullam accusantium voluptatum consequuntur sed ipsum
+      perspiciatis voluptates. FIN FIN
+    </p-scrollPanel>
+  </section>
+</ng-template>
+
+<ng-template #builderPreview>
+  <section class="section-builder-template section-builder-template--json">
+    <div class="title-section">
+      <h3>Preview Final</h3>
+    </div>
+    <p-scrollPanel [style]="{ width: '95%', height: '80%', margin: '1em 0 1em 1em' }">
+      <pre> {{ formatoSalida | json }} </pre>
+    </p-scrollPanel>
+  </section>
+</ng-template>
+
+
